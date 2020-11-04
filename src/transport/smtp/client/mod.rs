@@ -30,7 +30,9 @@ use std::fmt::Debug;
 #[cfg(any(feature = "tokio02", feature = "tokio03"))]
 pub use self::async_connection::AsyncSmtpConnection;
 #[cfg(any(feature = "tokio02", feature = "tokio03"))]
-pub(crate) use self::async_net::AsyncNetworkStream;
+pub use self::async_net::AsyncNetworkStream;
+#[cfg(any(feature = "tokio02", feature = "tokio03"))]
+pub use self::async_net::InnerAsyncNetworkStream;
 use self::net::NetworkStream;
 #[cfg(any(feature = "native-tls", feature = "rustls-tls"))]
 pub(super) use self::tls::InnerTlsParameters;

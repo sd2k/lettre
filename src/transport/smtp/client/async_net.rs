@@ -46,7 +46,7 @@ pub struct AsyncNetworkStream {
 // so clippy::large_enum_variant doesn't make sense here
 #[allow(clippy::large_enum_variant)]
 #[allow(dead_code)]
-enum InnerAsyncNetworkStream {
+pub enum InnerAsyncNetworkStream {
     /// Plain Tokio 0.2 TCP stream
     #[cfg(feature = "tokio02")]
     Tokio02Tcp(Tokio02TcpStream),
@@ -293,6 +293,10 @@ impl AsyncNetworkStream {
                 };
             }
         }
+    }
+
+    pub fn get_ref(&self) -> &InnerAsyncNetworkStream {
+        &self.inner
     }
 
     pub fn is_encrypted(&self) -> bool {

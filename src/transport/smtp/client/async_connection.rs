@@ -177,6 +177,11 @@ impl AsyncSmtpConnection {
         self.stream = BufReader::new(stream);
     }
 
+    /// Get a reference to the underlying stream.
+    pub fn stream(&self) -> &AsyncNetworkStream {
+        self.stream.get_ref()
+    }
+
     /// Tells if the underlying stream is currently encrypted
     pub fn is_encrypted(&self) -> bool {
         self.stream.get_ref().is_encrypted()
