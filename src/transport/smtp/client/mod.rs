@@ -28,7 +28,7 @@
 use std::fmt::Debug;
 
 #[cfg(any(feature = "tokio02", feature = "tokio03"))]
-pub(crate) use self::async_connection::AsyncSmtpConnection;
+pub use self::async_connection::AsyncSmtpConnection;
 #[cfg(any(feature = "tokio02", feature = "tokio03"))]
 pub(crate) use self::async_net::AsyncNetworkStream;
 use self::net::NetworkStream;
